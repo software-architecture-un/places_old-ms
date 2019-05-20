@@ -1,0 +1,14 @@
+version: "2"
+services:
+  places-ms:
+    build: .
+    ports:
+      - "5000:5000"
+    links:
+      - places-db
+  places-db:
+    image: mongo
+    volumes:
+      - /data/mongodb/db:/data/db
+    ports:
+      - "27017:27017"
